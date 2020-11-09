@@ -1,5 +1,5 @@
 WORK_DIR=`pwd`
-CONTAINER_WORK_DIR=$WORK_DIR
+CONTAINER_WORK_DIR="/home/ssl-coach"
 
 CONTAINER_NAME="ssl-coach"
 DOCKER_IMAGE="ssl-coach"
@@ -14,8 +14,7 @@ docker run  -it \
             --volume="/dev:/dev" \
             --privileged \
             --net=host \
-            --workdir="${CONTAINER_WORK_DIR}" \
-            --volume="${WORK_DIR}/config:/home/ssl-coach/config" \
+            --volume="${WORK_DIR}/config:${CONTAINER_WORK_DIR}/config" \
             --volume="/etc/group:/etc/group:ro" \
             --volume="/etc/passwd:/etc/passwd:ro" \
             --volume="/etc/shadow:/etc/shadow:ro" \
