@@ -66,3 +66,5 @@ RUN qmake ssl-coach.pro -spec linux-g++ && make -j4
 # compile run-ssl-coach
 WORKDIR /home/ssl-coach/run-ssl-coach
 RUN qmake run-ssl-coach.pro -spec linux-g++ && make -j4
+
+WORKDIR /home/ssl-coach
