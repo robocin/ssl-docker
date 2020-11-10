@@ -13,6 +13,6 @@ docker run  -it \
             --privileged \
             --net=host \
             --volume="${WORK_DIR}/config:${CONTAINER_WORK_DIR}/config" \
-            --volume="${WORK_DIR}/logs:${CONTAINER_WORK_DIR}/bin/logs" \
+            --volume="${WORK_DIR}/gitPullandRebuild.sh:${CONTAINER_WORK_DIR}/gitPullandRebuild.sh" \
             -v $HOME/.Xauthority:/root/.Xauthority \
             $DOCKER_IMAGE
