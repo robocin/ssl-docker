@@ -27,7 +27,7 @@ RUN apt-get update           \
 RUN pip3 install aqtinstall
 
 ARG QT=5.15.1
-ARG QT_MODULES=all
+ARG QT_MODULES='core network widgets opengl gui gamepad'
 ARG QT_HOST=linux
 ARG QT_TARGET=desktop
 ARG QT_ARCH=
