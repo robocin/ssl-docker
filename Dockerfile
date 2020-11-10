@@ -49,7 +49,7 @@ RUN git init && \
     git config user.email robocin@cin.ufpe.br && \
     git config user.name robocinufpe && \
     export GITHUB_ACCESS_TOKEN=${GITHUB_TOKEN} && \
-    git pull https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git
+    git pull https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git larc-2020
 
 # spdlog
 WORKDIR /home/ssl-coach
@@ -61,10 +61,10 @@ RUN sh compile.sh
 
 # compile ssl-coach
 WORKDIR /home/ssl-coach
-RUN qmake ssl-coach.pro -spec linux-g++ && make -j4
+RUN qmake ssl-coach.pro -spec linux-g++ && make -j8
 
 # compile run-ssl-coach
 WORKDIR /home/ssl-coach/run-ssl-coach
-RUN qmake run-ssl-coach.pro -spec linux-g++ && make -j4
+RUN qmake run-ssl-coach.pro -spec linux-g++ && make -j8
 
 WORKDIR /home/ssl-coach

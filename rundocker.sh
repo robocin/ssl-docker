@@ -9,14 +9,10 @@ docker run  -it \
             --rm \
             --user=$(id -u) \
             --name=$CONTAINER_NAME \
-            --memory=2048g \
-            --oom-kill-disable \
             --volume="/dev:/dev" \
             --privileged \
             --net=host \
             --volume="${WORK_DIR}/config:${CONTAINER_WORK_DIR}/config" \
-            --volume="/etc/group:/etc/group:ro" \
-            --volume="/etc/passwd:/etc/passwd:ro" \
-            --volume="/etc/shadow:/etc/shadow:ro" \
-            --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
+            --volume="${WORK_DIR}/logs:${CONTAINER_WORK_DIR}/bin/logs" \
+            -v $HOME/.Xauthority:/root/.Xauthority \
             $DOCKER_IMAGE
