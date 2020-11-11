@@ -48,7 +48,7 @@ ARG GITHUB_TOKEN
 RUN export GITHUB_ACCESS_TOKEN=${GITHUB_TOKEN} && \
     git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git -b larc-2020
 
-WORKDIR /home
+WORKDIR /home/ssl-coach
 RUN git config user.email robocin@cin.ufpe.br && \ 
     git config user.name robocinufpe
 
