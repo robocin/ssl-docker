@@ -87,7 +87,7 @@
     "Shoot Min dist to consider enemy close": "500",
     "Shoot Min dist to consider enemy goal line": "550",
     "Shoot Min dist to consider enemy pass line": "500",
-    "Shoot Min prob to consider close to goal": "0.3",
+    "Shoot Min prob to consider close to goal": "0.1",
     "Shoot Min prob to consider enemy close": "0.3",
     "Shoot Min prob to consider enemy goal line": "0.3",
     "Shoot Min prob to consider enemy pass line": "0.3",
