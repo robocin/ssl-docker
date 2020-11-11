@@ -49,7 +49,7 @@ RUN git init && \
     git config user.email robocin@cin.ufpe.br && \
     git config user.name robocinufpe && \
     export GITHUB_ACCESS_TOKEN=${GITHUB_TOKEN} && \
-    git pull https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git larc-2020
+    git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git -b larc-2020
 
 # spdlog
 WORKDIR /home/ssl-coach
