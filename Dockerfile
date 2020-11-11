@@ -42,14 +42,15 @@ ENV QML2_IMPORT_PATH /opt/qt/${QT}/gcc_64/qml/
 RUN apt-get install freeglut3 freeglut3-dev -y
 
 # ssl-coach
-WORKDIR /home/ssl-coach
+WORKDIR /home
 
 ARG GITHUB_TOKEN
-RUN git init && \
-    git config user.email robocin@cin.ufpe.br && \
-    git config user.name robocinufpe && \
-    export GITHUB_ACCESS_TOKEN=${GITHUB_TOKEN} && \
+RUN export GITHUB_ACCESS_TOKEN=${GITHUB_TOKEN} && \
     git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git -b larc-2020
+
+WORKDIR /home
+RUN git config user.email robocin@cin.ufpe.br && \ 
+    git config user.name robocinufpe
 
 # spdlog
 WORKDIR /home/ssl-coach
