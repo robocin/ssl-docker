@@ -1,11 +1,14 @@
 GITHUB_TOKEN=$1
 BRANCH=$2
 
-git fetch https://$GITHUB_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git --all
+
+git fetch https://$GITHUB_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git
 
 git reset --hard origin/$BRANCH
 
-git pull https://$GITHUB_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git $BRANCH
+git checkout $BRANCH
+
+git pull https://$GITHUB_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git
 
 
 
