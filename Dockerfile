@@ -41,6 +41,21 @@ ENV QML2_IMPORT_PATH /opt/qt/${QT}/gcc_64/qml/
 # open-gl
 RUN apt-get install freeglut3 freeglut3-dev -y
 
+# spdlog
+RUN cd .. && \
+    mkdir spdlog && \
+    cd spdlog && \
+    wget https://github.com/gabime/spdlog/archive/v1.6.1.zip && \
+    unzip v1.6.1.zip && \
+    cd spdlog-1.6.1 && \
+    mkdir build && \
+    cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release && \
+    cmake --build build --config Release && \
+    cd build && \
+    sudo make install -j4 && \
+    cd ../../.. && \
+    sudo rm -r spdlog
+
 # ssl-coach
 WORKDIR /home
 
@@ -51,10 +66,6 @@ RUN export GITHUB_ACCESS_TOKEN=${GITHUB_TOKEN} && \
 WORKDIR /home/ssl-coach
 RUN git config user.email robocin@cin.ufpe.br && \ 
     git config user.name robocinufpe
-
-# spdlog
-WORKDIR /home/ssl-coach
-RUN sh scripts/install_spdlog.sh
 
 # compile protobuf
 WORKDIR /home/ssl-coach/libs/pb/proto
