@@ -67,7 +67,7 @@
     "Navigation Max Kick discharge time (ms)": "3",
     "Navigation Motion Control Angle Kp": "4",
     "Navigation Motion Control Max Speed": "2.5",
-    "Navigation Motion Control Prop Speed Min Dist": "900",
+    "Navigation Motion Control Prop Speed Min Dist": "800",
     "Navigation Motion Control Prop Speed Min Factor": "0.1",
     "Navigation Rotate In Point Angle Kp": "4.5",
     "Navigation Rotate In Point Dist Error Allowed": "0.4",
