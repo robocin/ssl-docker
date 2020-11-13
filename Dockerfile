@@ -61,7 +61,7 @@ WORKDIR /home
 
 ARG GITHUB_TOKEN
 RUN export GITHUB_ACCESS_TOKEN=${GITHUB_TOKEN} && \
-    git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git -b t-larc-2020
+    git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git -b v3.1
 
 WORKDIR /home/ssl-coach
 RUN git config user.email robocin@cin.ufpe.br && \ 
