@@ -42,8 +42,7 @@ ENV QML2_IMPORT_PATH /opt/qt/${QT}/gcc_64/qml/
 RUN apt-get install freeglut3 freeglut3-dev -y
 
 # spdlog
-RUN cd .. && \
-    mkdir spdlog && \
+RUN mkdir spdlog && \
     cd spdlog && \
     wget https://github.com/gabime/spdlog/archive/v1.6.1.zip && \
     unzip v1.6.1.zip && \
@@ -52,9 +51,9 @@ RUN cd .. && \
     cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release && \
     cmake --build build --config Release && \
     cd build && \
-    sudo make install -j4 && \
+    make install -j4 && \
     cd ../../.. && \
-    sudo rm -r spdlog
+    rm -r spdlog
 
 USER default
 
