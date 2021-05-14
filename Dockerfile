@@ -21,6 +21,7 @@ RUN apt-get update           \
     libgl1-mesa-dev          \
     libxkbcommon-x11-0       \
     libpulse-dev             \
+    net-tools \
     && apt-get clean
 
 # qmake
