@@ -21,6 +21,7 @@ RUN apt-get update           \
     libgl1-mesa-dev          \
     libxkbcommon-x11-0       \
     libpulse-dev             \
+    net-tools                \ 
     && apt-get clean
 
 # qmake
@@ -61,7 +62,17 @@ WORKDIR /home
 
 ARG GITHUB_TOKEN
 RUN export GITHUB_ACCESS_TOKEN=${GITHUB_TOKEN} && \
-    git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git -b v3.2
+    git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git -b v4.0 && \
+    cd ssl-coach/src/Communication && \
+    rm -r CommBst && \
+    git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/communication-software.git CommBst && \
+    cd CommBst && \
+    git reset --hard 00027e9ec1bc0aa46ecb642e0b243b1e0ce154bb && \
+    cd libs/communication && \
+    rm -r nRF24Communication && \
+    git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/communication-embedded.git nRF24Communication && \
+    cd nRF24Communication && \
+    git reset --hard 98aacebd25229155267fc6f0774cd4a72fde199f
 
 WORKDIR /home/ssl-coach
 RUN git config user.email robocin@cin.ufpe.br && \ 
