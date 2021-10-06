@@ -62,7 +62,7 @@ WORKDIR /home
 
 ARG GITHUB_TOKEN
 RUN export GITHUB_ACCESS_TOKEN=${GITHUB_TOKEN} && \
-    git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git -b run_grSim && \
+    git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/ssl-coach.git -b passKickOff && \
     cd ssl-coach/src/Communication && \
     rm -r CommBst && \
     git clone https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/robocin/communication-software.git CommBst && \
