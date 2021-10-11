@@ -21,18 +21,18 @@ RUN apt-get update           \
     libgl1-mesa-dev          \
     libxkbcommon-x11-0       \
     libpulse-dev             \
-    net-tools \
+    net-tools                \
     && apt-get clean
 
 # qmake
 RUN pip3 install aqtinstall
 
-ARG QT=5.15.1
+ARG QT=5.15.2
 ARG QT_MODULES='core network widgets opengl gui gamepad'
 ARG QT_HOST=linux
 ARG QT_TARGET=desktop
 ARG QT_ARCH=
-RUN aqt install --outputdir /opt/qt ${QT} ${QT_HOST} ${QT_TARGET} ${QT_ARCH} -m ${QT_MODULES}
+RUN aqt install --outputdir /opt/qt ${QT} ${QT_HOST} ${QT_TARGET} ${QT_ARCH}
 
 ENV PATH /opt/qt/${QT}/gcc_64/bin:$PATH
 ENV QT_PLUGIN_PATH /opt/qt/${QT}/gcc_64/plugins/
