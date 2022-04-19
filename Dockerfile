@@ -22,8 +22,11 @@ RUN apt-get update           \
     libxkbcommon-x11-0       \
     libpulse-dev             \
     net-tools                \
+    gedit                    \
+    bash                     \
     && apt-get clean
 
+# ssl-coach install
 # qmake
 RUN pip3 install aqtinstall
 
@@ -55,6 +58,18 @@ RUN mkdir spdlog && \
     make install -j4 && \
     cd ../../.. && \
     rm -r spdlog
+
+# ssl-unification
+
+# depedencies essencials
+RUN git clone https://github.com/robocin/soccer-common.git && \
+    cd soccer-common && \
+    git reset --hard 8a7d9a2477b781f6ea9df8c9d7a99770fdbae64b && \ 
+    git submodule update --init --recursive && \
+    cd scripts && \
+    ./setup.py --essentials && \
+    cd ../.. && \
+    rm -r soccer-common
 
 USER default
 
