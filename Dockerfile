@@ -62,11 +62,8 @@ RUN mkdir spdlog && \
 # ssl-unification
 
 # depedencies essencials
-RUN git clone https://github.com/robocin/soccer-common.git && \
-    cd soccer-common && \
-    git reset --hard 8a7d9a2477b781f6ea9df8c9d7a99770fdbae64b && \ 
-    git submodule update --init --recursive && \
-    cd scripts && \
+RUN git clone --recursive https://github.com/robocin/soccer-common.git -b 'release/amistoso' && \
+    cd soccer-common/scripts && \
     ./setup.py --essentials && \
     cd ../.. && \
     rm -r soccer-common
