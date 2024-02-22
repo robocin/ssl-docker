@@ -9,7 +9,9 @@ RUN git clone --recursive https://github.com/robocin/soccer-common.git && \
     cd soccer-common/scripts && \
     ./setup.py --essentials && \
     ./setup.py --install zlib && \
-    cd ../.. && \
+    cd ubuntu && \
+    ./cmake.sh && \
+    cd ../../.. && \
     rm -r soccer-common
 
 USER default
